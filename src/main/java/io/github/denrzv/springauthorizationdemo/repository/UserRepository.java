@@ -17,13 +17,13 @@ public class UserRepository {
         users = new HashMap<>();
     }
 
-    public List<Authorities> getUserAuthorities(String user, String password) {
-        return users.getOrDefault(new User(user, password), new ArrayList<>());
-    }
-
     public User addUser(String user, String password, List<Authorities> authorities) {
         User newUser = new User(user, password);
         users.put(newUser, authorities);
         return newUser;
+    }
+
+    public List<Authorities> getUserAuthorities(User user) {
+        return users.getOrDefault(user, new ArrayList<>());
     }
 }
