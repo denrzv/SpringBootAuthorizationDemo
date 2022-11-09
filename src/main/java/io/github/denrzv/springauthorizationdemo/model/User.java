@@ -1,9 +1,15 @@
 package io.github.denrzv.springauthorizationdemo.model;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class User {
+    @NotBlank
+    @Size(min = 4, max = 10)
     private final String user;
+    @NotBlank
+    @Size(min = 8, max = 16)
     private final String password;
 
     public User(String user, String password) {
